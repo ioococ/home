@@ -7,8 +7,7 @@
       :src="bgUrl"
       @load="imgLoadComplete"
       @error.once="imgLoadError"
-      @animationend="imgAnimationEnd"
-    />
+      @animationend="imgAnimationEnd"/>
     <div :class="store.backgroundShow ? 'gray hidden' : 'gray'" />
     <Transition name="fade" mode="out-in">
       <a

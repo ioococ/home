@@ -19,8 +19,7 @@
         :indeterminate="true"
         :stroke-width="6"
         :percentage="80"
-        :duration="2"
-      /> -->
+        :duration="2"/> -->
     </div>
   </div>
 </template>

@@ -7,26 +7,17 @@
       <span class="title">网站列表</span>
     </div>
     <!-- 网站列表 -->
-    <Swiper
-      v-if="siteLinks[0]"
-      :modules="[Pagination, Mousewheel]"
-      :slides-per-view="1"
-      :space-between="40"
+    <Swiper v-if="siteLinks[0]" :modules="[Pagination, Mousewheel]" :slides-per-view="1" :space-between="40"
       :pagination="{
         el: '.swiper-pagination',
         clickable: true,
         bulletElement: 'div',
       }"
-      :mousewheel="true"
-    >
+      :mousewheel="true">
       <SwiperSlide v-for="site in siteLinksList" :key="site">
         <el-row class="link-all" :gutter="20">
           <el-col v-for="(item, index) in site" :span="8" :key="item">
-            <div
-              class="item cards"
-              :style="index < 3 ? 'margin-bottom: 20px' : null"
-              @click="jumpLink(item)"
-            >
+            <div class="item cards" :style="index < 3 ? 'margin-bottom: 20px' : null" @click="jumpLink(item)">
               <Icon size="26">
                 <component :is="siteIcon[item.icon]" />
               </Icon>

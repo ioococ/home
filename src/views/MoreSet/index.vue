@@ -7,8 +7,7 @@
           size="28"
           fill="#ffffff60"
           v-show="closeShow"
-          @click="store.setOpenState = false"
-      />
+          @click="store.setOpenState = false"/>
     </transition>
     <el-row :gutter="40">
       <el-col :span="12" class="left">

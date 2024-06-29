@@ -3,9 +3,7 @@
     <div class="loader">
       <div class="loader-circle" />
       <div class="loader-text">
-        <span class="name">
-          {{ siteName }}
-        </span>
+        <span class="name">{{ siteName }}</span>
         <span class="tip"> 加载中 </span>
       </div>
     </div>

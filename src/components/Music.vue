@@ -1,11 +1,6 @@
 <template>
   <!-- 音乐控制面板 -->
-  <div
-    class="music"
-    @mouseenter="volumeShow = true"
-    @mouseleave="volumeShow = false"
-    v-show="store.musicOpenState"
-  >
+  <div class="music" @mouseenter="volumeShow = true" @mouseleave="volumeShow = false" v-show="store.musicOpenState">
     <div class="btns">
       <span @click="openMusicList()">音乐列表</span>
       <span @click="store.musicOpenState = false">回到一言</span>
@@ -29,12 +24,7 @@
       <div class="volume" v-show="volumeShow">
         <div class="icon">
           <volume-mute theme="filled" size="24" fill="#efefef" v-if="volumeNum == 0" />
-          <volume-small
-            theme="filled"
-            size="24"
-            fill="#efefef"
-            v-else-if="volumeNum > 0 && volumeNum < 0.7"
-          />
+          <volume-small theme="filled" size="24" fill="#efefef" v-else-if="volumeNum > 0 && volumeNum < 0.7"/>
           <volume-notice theme="filled" size="24" fill="#efefef" v-else />
         </div>
         <el-slider v-model="volumeNum" :show-tooltip="false" :min="0" :max="1" :step="0.01" />
@@ -46,21 +36,9 @@
     <div class="music-list" v-show="musicListShow" @click="musicListShow = false">
       <Transition name="zoom">
         <div class="list" v-show="musicListShow" @click.stop>
-          <close-one
-            class="close"
-            theme="filled"
-            size="28"
-            fill="#ffffff60"
-            @click="musicListShow = false"
-          />
-          <Player
-            :songServer="playerData.server"
-            :songType="playerData.type"
-            :songId="playerData.id"
-            :volume="volumeNum"
-            :shuffle="false"
-            ref="playerRef"
-          />
+          <close-one class="close" theme="filled" size="28" fill="#ffffff60" @click="musicListShow = false"/>
+          <Player :songServer="playerData.server" :songType="playerData.type" :songId="playerData.id"
+            :volume="volumeNum" :shuffle="false" ref="playerRef"/>
         </div>
       </Transition>
     </div>

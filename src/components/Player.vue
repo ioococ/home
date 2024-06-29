@@ -1,23 +1,9 @@
 <template>
-  <aplayer
-    showLrc
-    ref="player"
-    v-if="playList[0]"
-    :music="playList[playIndex]"
-    :list="playList"
-    :autoplay="autoplay"
-    :theme="theme"
-    :repeat="repeat"
-    :shuffle="shuffle"
-    :listMaxHeight="listMaxHeight"
-    :listFolded="listFolded"
-    :volume="volume"
-    @play="onPlay"
-    @pause="onPause"
-    @timeupdate="onTimeUp"
-    @onSelectSong="onSelectSong"
-    @error="loadMusicError"
-  />
+  <aplayer showLrc ref="player" v-if="playList[0]"
+    :music="playList[playIndex]" :list="playList" :autoplay="autoplay"
+    :theme="theme" :repeat="repeat" :shuffle="shuffle"
+    :listMaxHeight="listMaxHeight" :listFolded="listFolded" :volume="volume"
+    @play="onPlay" @pause="onPause" @timeupdate="onTimeUp" @onSelectSong="onSelectSong" @error="loadMusicError" />
 </template>
 
 <script setup>

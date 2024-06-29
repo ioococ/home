@@ -1,18 +1,9 @@
 <template>
-  <div
-    class="hitokoto cards"
-    v-show="!store.musicOpenState"
-    @mouseenter="openMusicShow = true"
-    @mouseleave="openMusicShow = false"
-    @click.stop
-  >
+  <div class="hitokoto cards" v-show="!store.musicOpenState"
+    @mouseenter="openMusicShow = true" @mouseleave="openMusicShow = false" @click.stop>
     <!-- 打开音乐面板 -->
     <Transition name="el-fade-in-linear">
-      <div
-        class="open-music"
-        v-show="openMusicShow && store.musicIsOk"
-        @click="store.musicOpenState = true"
-      >
+      <div class="open-music" v-show="openMusicShow && store.musicIsOk" @click="store.musicOpenState = true">
         <music-menu theme="filled" size="18" fill="#efefef" />
         <span>打开音乐播放器</span>
       </div>
