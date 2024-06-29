@@ -9,20 +9,13 @@
             -
           </span>
           {{ fullYear }}
-          <a :href="siteUrl">{{ siteAnthor }}</a>
+          <a :href="siteUrl">{{ siteAuthor }}</a>
         </span>
         <!-- 以下信息请不要修改哦 -->
         <span class="hidden">
           &amp;&nbsp;Made&nbsp;by
-          <a :href="config.github" target="_blank">
-            {{ config.author }}
-          </a>
+          <a :href="config.github" target="_blank">{{ config.author }}</a>
         </span>
-        <!-- 站点备案 -->
-        <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
-          &amp;
-          {{ siteIcp }}
-        </a>
       </div>
       <div v-else class="lrc">
         <Transition name="fade" mode="out-in">
@@ -40,18 +33,17 @@
 <script setup>
 import { MusicOne } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
-import config from "@/../package.json";
+import config from "@/assets/info.json";
 
 const store = mainStore();
 const fullYear = new Date().getFullYear();
 
 // 加载配置数据
 const siteStartDate = ref(import.meta.env.VITE_SITE_START);
-const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
-const siteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
+const siteAuthor = config.site_author
+
 const siteUrl = computed(() => {
-  const url = import.meta.env.VITE_SITE_URL;
-  if (!url) return "https://www.imsyy.top";
+  const url = config.site_url;
   // 判断协议前缀
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     return "//" + url;

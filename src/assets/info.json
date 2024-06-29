@@ -1,0 +1,22 @@
+{
+  "name": "home",
+  "author": "onei",
+  "github": "https://github.com/ioococ/home",
+  "home": "https://ioococ.github.io",
+  "private": true,
+  "version": "4.1.3",
+  
+  "site_name": "Hi, Onei",
+  "site_author": "Onei",
+  "site_keywords": "Onei,个人主页",
+  "site_des": "一个默默无闻的主页",
+  "site_url": "https://onei.moe",
+  "site_logo": "/images/icon/favicon.ico",
+  "site_main_logo": "/images/icon/logo.png",
+  "site_apple_logo": "/images/logo/apple-touch-icon.png",
+  
+  "desc_hello": "Hello World !",
+  "desc_text": "一个建立于 21 世纪的小站，存活于互联网的边缘",
+  "desc_hello_other": "Oops !",
+  "desc_text_other": "哎呀，这都被你发现了（ 再点击一次可关闭 ）"
+}

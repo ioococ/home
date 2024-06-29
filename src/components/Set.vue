@@ -4,49 +4,29 @@
       <el-collapse-item title="个性壁纸" name="1">
         <div class="bg-set">
           <el-radio-group v-model="coverType" text-color="#ffffff" @change="radioChange">
-            <el-radio label="0" size="large" border>默认壁纸</el-radio>
-            <el-radio label="1" size="large" border>每日一图</el-radio>
-            <el-radio label="2" size="large" border>随机风景</el-radio>
-            <el-radio label="3" size="large" border>随机动漫</el-radio>
+            <el-radio value="0" size="large" border>默认壁纸</el-radio>
+            <el-radio value="1" size="large" border>每日一图</el-radio>
+            <el-radio value="2" size="large" border>随机风景</el-radio>
+            <el-radio value="3" size="large" border>随机动漫</el-radio>
           </el-radio-group>
         </div>
       </el-collapse-item>
       <el-collapse-item title="个性化调整" name="2">
         <div class="item">
           <span class="text">建站日期显示</span>
-          <el-switch
-            v-model="siteStartShow"
-            inline-prompt
-            :active-icon="CheckSmall"
-            :inactive-icon="CloseSmall"
-          />
+          <el-switch v-model="siteStartShow" inline-prompt :active-icon="CheckSmall" :inactive-icon="CloseSmall" />
         </div>
         <div class="item">
           <span class="text">音乐点击是否打开面板</span>
-          <el-switch
-            v-model="musicClick"
-            inline-prompt
-            :active-icon="CheckSmall"
-            :inactive-icon="CloseSmall"
-          />
+          <el-switch v-model="musicClick" inline-prompt :active-icon="CheckSmall" :inactive-icon="CloseSmall" />
         </div>
         <div class="item">
           <span class="text">底栏歌词显示</span>
-          <el-switch
-            v-model="playerLrcShow"
-            inline-prompt
-            :active-icon="CheckSmall"
-            :inactive-icon="CloseSmall"
-          />
+          <el-switch v-model="playerLrcShow" inline-prompt :active-icon="CheckSmall" :inactive-icon="CloseSmall" />
         </div>
         <div class="item">
           <span class="text">底栏背景模糊</span>
-          <el-switch
-            v-model="footerBlur"
-            inline-prompt
-            :active-icon="CheckSmall"
-            :inactive-icon="CloseSmall"
-          />
+          <el-switch v-model="footerBlur" inline-prompt :active-icon="CheckSmall" :inactive-icon="CloseSmall" />
         </div>
       </el-collapse-item>
       <el-collapse-item title="播放器配置" name="3">
@@ -118,7 +98,7 @@ const radioChange = () => {
             justify-content: space-between;
 
             .el-radio {
-              margin: 10px 16px;
+              margin: 10px 14px;
               background: #ffffff26;
               border: 2px solid transparent;
               border-radius: 8px;

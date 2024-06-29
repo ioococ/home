@@ -44,7 +44,7 @@ const getWeatherData = () => {
   if (!mainKey) {
     getOtherWeather()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         const data = res.result;
         weatherData.adCode = {
           city: data.city.name,
