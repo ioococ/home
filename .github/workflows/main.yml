@@ -28,4 +28,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: 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
+          external_repository: ioococ/ioococ.github.io
           publish_dir: ./dist
