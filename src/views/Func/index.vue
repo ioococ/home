@@ -4,24 +4,13 @@
     <el-row :gutter="20">
       <el-col :span="12">
         <div class="left">
-          <Hitokoto />
-          <Music v-if="playerHasId" />
+          <hitokoto />
+          <music v-if="playerHasId" />
         </div>
       </el-col>
       <el-col :span="12">
         <div class="right cards">
-          <div class="time">
-            <div class="date">
-              <span>{{ currentTime.year }}&nbsp;年&nbsp;</span>
-              <span>{{ currentTime.month }}&nbsp;月&nbsp;</span>
-              <span>{{ currentTime.day }}&nbsp;日&nbsp;</span>
-              <span class="sm-hidden">{{ currentTime.weekday }}</span>
-            </div>
-            <div class="text">
-              <span> {{ currentTime.hour }}:{{ currentTime.minute }}:{{ currentTime.second }}</span>
-            </div>
-          </div>
-          <Weather />
+          <Time />
         </div>
       </el-col>
     </el-row>
@@ -33,33 +22,23 @@ import { getCurrentTime } from "@/utils/getTime";
 import { mainStore } from "@/store";
 import Music from "@/components/Music.vue";
 import Hitokoto from "@/components/Hitokoto.vue";
-import Weather from "@/components/Weather.vue";
+import Time from "@/components/Time.vue";
 
 const store = mainStore();
-
-// 当前时间
-const currentTime = ref({});
-const timeInterval = ref(null);
 
 // 播放器 id
 const playerHasId = import.meta.env.VITE_SONG_ID;
 
-// 更新时间
-const updateTimeData = () => {
-  currentTime.value = getCurrentTime();
-};
-
 onMounted(() => {
-  updateTimeData();
-  timeInterval.value = setInterval(updateTimeData, 1000);
 });
 
 onBeforeUnmount(() => {
-  clearInterval(timeInterval.value);
 });
 </script>
 
 <style lang="scss" scoped>
+@import "@/style/shadow.scss";
+
 .function {
   height: 165px;
   display: flex;
@@ -101,10 +80,10 @@ onBeforeUnmount(() => {
         }
       }
     }
-    .left,
-    .right {
+    .left, .right {
       width: 100%;
       height: 100%;
+      box-shadow: $default-shadow;
     }
     .right {
       padding: 20px;
@@ -113,27 +92,9 @@ onBeforeUnmount(() => {
       align-items: center;
       justify-content: space-between;
       animation: fade 0.5s;
-      .time {
-        font-size: 1.1rem;
-        text-align: center;
-        .date {
-          text-overflow: ellipsis;
-          overflow-x: hidden;
-          white-space: nowrap;
-        }
-        .text {
-          margin-top: 10px;
-          font-size: 3.25rem;
-          letter-spacing: 2px;
-          font-family: "Bahama Heavy";
-        }
-      }
-      .weather {
-        text-align: center;
-        width: 100%;
-        text-overflow: ellipsis;
-        overflow-x: hidden;
-        white-space: nowrap;
+
+      &.hover {
+        box-shadow: $hover-shadow;
       }
     }
   }
