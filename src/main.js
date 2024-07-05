@@ -1,5 +1,7 @@
 import { createApp } from "vue";
 import "@/style/style.scss";
+import "@/assets/FontAwesome/scss/fontawesome.scss";
+import "@/assets/FontAwesome/js/all.js";
 import App from "@/App.vue";
 // 引入 pinia
 import { createPinia } from "pinia";

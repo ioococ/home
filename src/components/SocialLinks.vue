@@ -5,7 +5,8 @@
       <a v-for="item in socialLinks"
         :key="item.name" :href="item.url" target="_blank"
         @mouseenter="socialTip = item.tip" @mouseleave="socialTip = '通过这里联系我吧'">
-        <img class="icon" :src="item.icon" height="24" />
+<!--        <img class="icon" :src="item.icon" height="24" />-->
+        <i :class="'icon ' + item.icon"></i>
       </a>
     </div>
     <span class="tip">{{ socialTip }}</span>
@@ -55,6 +56,10 @@ const socialTip = ref("通过这里联系我吧");
       display: inherit;
       .icon {
         margin: 0 12px;
+        width: 28px;
+        height: 28px;
+        color: var(--main-color) !important;
+        border-radius: 50%;
         transition: transform 0.3s;
         &:hover {
           transform: scale(1.1);
