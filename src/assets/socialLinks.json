@@ -1,32 +1,32 @@
 [
   {
     "name": "Github",
-    "icon": "/images/icon/github.png",
+    "icon": "fa-brands fa-github",
     "tip": "去 Github 看看",
-    "url": "https://github.com/imsyy"
+    "url": "https://github.com/ioococ"
   },
   {
-    "name": "QQ",
-    "icon": "/images/icon/qq.png",
-    "tip": "有什么事吗",
-    "url": "https://res.abeim.cn/api/qq/?qq=1539250352"
+    "name": "Orcid",
+    "icon": "fa-brands fa-orcid",
+    "tip": "探索探索技术",
+    "url": "https://orcid.org/0009-0009-7377-3622"
   },
   {
     "name": "Email",
-    "icon": "/images/icon/email.png",
+    "icon": "fa-sharp fa-circle-envelope",
     "tip": "来封 Email ~",
     "url": "mailto:komoreal@outlook.com"
   },
   {
-    "name": "Twitter",
-    "icon": "/images/icon/twitter.png",
-    "tip": "你懂的 ~",
-    "url": "https://twitter.com/iimmsyy"
+    "name": "Steam",
+    "icon": "fa-brands fa-steam",
+    "tip": "跟我一块儿玩耍吧",
+    "url": "https://steamcommunity.com/profiles/76561199028155070"
   },
   {
-    "name": "Telegram",
-    "icon": "/images/icon/telegram.png",
-    "tip": "你懂的 ~",
-    "url": "https://t.me/bottom_user"
+    "name": "Instagram",
+    "icon": "fa-brands fa-square-instagram",
+    "tip": "偷偷关注我",
+    "url": "https://www.instagram.com/misakaui/"
   }
 ]
