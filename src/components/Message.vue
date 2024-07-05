@@ -6,7 +6,8 @@
       <img class="logo-img" :src="siteLogo" alt="logo" />
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
-        <span class="sm">.{{ siteUrl[1] }}</span>
+        <span class="sm">.</span>
+        <span class="sm">{{ siteUrl[1] }}</span>
       </div>
     </div>
     <!-- 简介 -->
@@ -39,7 +40,6 @@ const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 // 站点链接
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
-  if (!url) return "imsyy.top".split(".");
   // 判断协议前缀
   if (url.startsWith("http://") || url.startsWith("https://")) {
     const urlFormat = url.replace(/^(https?:\/\/)/, "");
@@ -86,6 +86,8 @@ watch(
 </script>
 
 <style lang="scss" scoped>
+@import "@/style/shadow.scss";
+
 .message {
   .logo {
     display: flex;
@@ -96,20 +98,29 @@ watch(
     .logo-img {
       border-radius: 50%;
       width: 120px;
+      margin: 0 20px;
     }
     .name {
-      width: 100%;
-      padding-left: 22px;
+      padding: 6px;
+      width: fit-content;
+      color: #fff;
       transform: translateY(-8px);
-      font-family: "Pacifico-Regular";
+      font-family: "Pacifico-Regular", serif;
+      transition: text-shadow 0.3s;
+      &:hover {
+        text-shadow:
+          0 0 7px #fff,
+          0 0 10px #fff;
+      }
 
       .bg {
         font-size: 5rem;
+        line-height: 5rem;
       }
 
       .sm {
-        margin-left: 6px;
         font-size: 2rem;
+        line-height: 2rem;
         @media (min-width: 720px) and (max-width: 789px) {
           display: none;
         }
@@ -123,6 +134,7 @@ watch(
         height: 128px;
         .bg {
           font-size: 4.5rem;
+          line-height: 8rem;
         }
       }
     }
@@ -137,6 +149,13 @@ watch(
     margin-top: 3.5rem;
     max-width: 460px;
     animation: fade 0.5s;
+    transition: all 0.3s;
+    background-color: var(--background-color);
+    box-shadow: $default-shadow;
+
+    &:hover {
+      box-shadow: $hover-shadow;
+    }
 
     .content {
       display: flex;
@@ -149,7 +168,7 @@ watch(
 
         p {
           &:nth-of-type(1) {
-            font-family: "Pacifico-Regular";
+            font-family: "Pacifico-Regular", serif;
           }
         }
       }

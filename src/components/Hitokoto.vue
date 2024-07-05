@@ -82,7 +82,7 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #00000026;
+    background-color: var(--background-color);
     padding: 4px 0;
     border-radius: 8px 8px 0 0;
     .i-icon {

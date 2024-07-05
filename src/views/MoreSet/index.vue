@@ -97,7 +97,8 @@ const jumpTo = (url) => {
   transform: translate(-50%, -50%);
   width: 80%;
   height: 80%;
-  background: rgb(255 255 255 / 40%);
+  //background: rgb(255 255 255 / 40%);
+  background: var(--set-color);
   border-radius: 6px;
   padding: 40px;
 

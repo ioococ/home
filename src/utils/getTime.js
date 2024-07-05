@@ -1,6 +1,3 @@
-import { h } from "vue";
-import { SpaCandle } from "@icon-park/vue-next";
-
 // 时钟
 export const getCurrentTime = () => {
   let time = new Date();
@@ -11,16 +8,7 @@ export const getCurrentTime = () => {
   let minute = time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
   let second = time.getSeconds() < 10 ? "0" + time.getSeconds() : time.getSeconds();
   let weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
-  let currentTime = {
-    year,
-    month,
-    day,
-    hour,
-    minute,
-    second,
-    weekday: weekday[time.getDay()],
-  };
-  return currentTime;
+  return { year, month, day, hour, minute, second, weekday: weekday[time.getDay()], };
 };
 
 // 时光胶囊
@@ -50,22 +38,10 @@ export const getTimeCapsule = () => {
   const yearPassPercent = (yearPassHours / yearTotalHours) * 100;
 
   return {
-    day: {
-      elapsed: Math.floor(todayPassHours),
-      pass: Math.floor(todayPassHoursPercent),
-    },
-    week: {
-      elapsed: weekDay,
-      pass: Math.floor(weekDayPassPercent),
-    },
-    month: {
-      elapsed: date,
-      pass: Math.floor(monthPassPercent),
-    },
-    year: {
-      elapsed: month - 1,
-      pass: Math.floor(yearPassPercent),
-    },
+    day: { elapsed: Math.floor(todayPassHours), pass: Math.floor(todayPassHoursPercent) },
+    week: { elapsed: weekDay, pass: Math.floor(weekDayPassPercent) },
+    month: { elapsed: date, pass: Math.floor(monthPassPercent) },
+    year: { elapsed: month - 1, pass: Math.floor(yearPassPercent) },
   };
 };
 
@@ -73,23 +49,15 @@ export const getTimeCapsule = () => {
 export const helloInit = () => {
   const hour = new Date().getHours();
   let hello = null;
-  if (hour < 6) {
-    hello = "凌晨好";
-  } else if (hour < 9) {
-    hello = "早上好";
-  } else if (hour < 12) {
-    hello = "上午好";
-  } else if (hour < 14) {
-    hello = "中午好";
-  } else if (hour < 17) {
-    hello = "下午好";
-  } else if (hour < 19) {
-    hello = "傍晚好";
-  } else if (hour < 22) {
-    hello = "晚上好";
-  } else {
-    hello = "夜深了";
-  }
+  if (hour < 6) hello = "凌晨好";
+  else if (hour < 9) hello = "早上好";
+  else if (hour < 12) hello = "上午好";
+  else if (hour < 14) hello = "中午好";
+  else if (hour < 17) hello = "下午好";
+  else if (hour < 19) hello = "傍晚好";
+  else if (hour < 22) hello = "晚上好";
+  else hello = "夜深了";
+
   ElMessage({
     dangerouslyUseHTMLString: true,
     message: `<strong>${hello}</strong> 欢迎来到我的主页`,
@@ -104,14 +72,8 @@ export const siteDateStatistics = (startDate) => {
   const differenceInMonths = differenceInDays / 30;
   const differenceInYears = differenceInMonths / 12;
   if (differenceInYears >= 1) {
-    return `本站已经苟活了 ${Math.floor(differenceInYears)} 年 ${Math.floor(
-      differenceInMonths % 12,
-    )} 月 ${Math.round(differenceInDays % 30)} 天`;
+    return `本站已经苟活了 ${Math.floor(differenceInYears)} 年 ${Math.floor(differenceInMonths % 12,)} 月 ${Math.round(differenceInDays % 30)} 天`;
   } else if (differenceInMonths >= 1) {
-    return `本站已经苟活了 ${Math.floor(differenceInMonths)} 月 ${Math.round(
-      differenceInDays % 30,
-    )} 天`;
-  } else {
-    return `本站已经苟活了 ${Math.round(differenceInDays)} 天`;
-  }
+    return `本站已经苟活了 ${Math.floor(differenceInMonths)} 月 ${Math.round(differenceInDays % 30,)} 天`;
+  } else return `本站已经苟活了 ${Math.round(differenceInDays)} 天`;
 };

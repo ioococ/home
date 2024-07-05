@@ -10,7 +10,7 @@ body {
   padding: 0;
   background-color: #333;
   overflow: hidden;
-  font-family: "HarmonyOS_Regular", sans-serif;
+  font-family: "MiSans", sans-serif;
 }
 
 *,
@@ -60,7 +60,7 @@ p {
 // 卡片样式
 .cards {
   border-radius: 6px;
-  background-color: #00000040;
+  background-color: var(--background-color);
   backdrop-filter: blur(10px);
   transform: scale(1);
   transition:
@@ -197,7 +197,7 @@ p {
   opacity: 0.25;
   z-index: 10086;
   pointer-events: none;
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
   transition-property: background, opacity, transform;
 
   &.hidden {
