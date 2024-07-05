@@ -104,13 +104,8 @@ onMounted(() => {
             lrc: v.lrc,
           });
         });
-        console.log(
-          "音乐加载完成",
-          playList.value,
-          playIndex.value,
-          playListCount.value,
-          props.volume,
-        );
+        console.log("音乐加载完成");
+        // console.log(playList.value, playIndex.value, playListCount.value, props.volume);
       });
     } catch (err) {
       console.error(err);

@@ -19,12 +19,7 @@
         </section>
       </div>
       <!-- 移动端菜单按钮 -->
-      <Icon
-        class="menu"
-        size="24"
-        v-show="!store.backgroundShow"
-        @click="store.mobileOpenState = !store.mobileOpenState"
-      >
+      <Icon class="menu" size="24" v-show="!store.backgroundShow" @click="store.mobileOpenState = !store.mobileOpenState">
         <component :is="store.mobileOpenState ? CloseSmall : HamburgerButton" />
       </Icon>
       <!-- 页脚 -->
@@ -49,6 +44,7 @@ import Footer from "@/components/Footer.vue";
 import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
+import randomColor from "@/utils/randomColor.js";
 import config from "@/../package.json";
 
 const store = mainStore();
@@ -80,43 +76,39 @@ onMounted(() => {
   // 自定义鼠标
   cursorInit();
 
+  const color = randomColor();
+
   // 屏蔽右键
   document.oncontextmenu = () => {
-    // ElMessage({
-    //   message: "为了浏览体验，本站禁用右键",
-    //   grouping: true,
-    //   duration: 2000,
-    // });
     return false;
   };
 
-  // // 鼠标中键事件
-  // window.addEventListener("mousedown", (event) => {
-  //   if (event.button == 1) {
-  //     store.backgroundShow = !store.backgroundShow;
-  //     ElMessage({
-  //       message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
-  //       grouping: true,
-  //     });
-  //   }
-  // });
+  // 鼠标中键事件
+  window.addEventListener("mousedown", (event) => {
+    if (event.button == 1) {
+      store.backgroundShow = !store.backgroundShow;
+      ElMessage({
+        message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
+        grouping: true,
+      });
+    }
+  });
 
   // 监听当前页面宽度
   getWidth();
   window.addEventListener("resize", getWidth);
 
   // 控制台输出
-  const styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
-  const styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
-  const styleContent = "color: rgb(30,152,255);";
+  const styleTitle1 = `font-size: 20px;font-weight: 600;color: ${color}`;
+  const styleTitle2 = `font-size:12px;color: ${color}`;
+  const styleContent = `color: ${color}`;
   const title1 = "Hi, Onei";
   const title2 = `
- _____ __  __  _______     ____     __
-|_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
-  | | | \\  / | (___  \\ \\_/ /  \\ \\_/ /
-  | | | |\\/| |\\___ \\  \\   /    \\   /
- _| |_| |  | |____) |  | |      | |
-|_____|_|  |_|_____/   |_|      |_|`;
+       ____             _
+      / __ \\____  ___  (_)
+     / / / / __ \\/ _ \\/ /
+    / /_/ / / / /  __/ /
+    \\____/_/ /_/\\___/_/   `;
   const content = `\n\n版本: ${config.version}\n主页: ${config.home}\nGithub: ${config.github}`;
   console.info(`%c${title1} %c${title2} %c${content}`, styleTitle1, styleTitle2, styleContent);
 });

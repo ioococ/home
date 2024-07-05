@@ -1,21 +1,10 @@
 <template>
   <div :class="store.backgroundShow ? 'cover show' : 'cover'">
-    <img
-      v-show="store.imgLoadStatus"
-      class="bg"
-      alt="cover"
-      :src="bgUrl"
-      @load="imgLoadComplete"
-      @error.once="imgLoadError"
-      @animationend="imgAnimationEnd"/>
+    <img v-show="store.imgLoadStatus" class="bg" alt="cover" :src="bgUrl"
+      @load="imgLoadComplete" @error.once="imgLoadError" @animationend="imgAnimationEnd" crossorigin="anonymous"/>
     <div :class="store.backgroundShow ? 'gray hidden' : 'gray'" />
     <Transition name="fade" mode="out-in">
-      <a
-        v-if="store.backgroundShow && store.coverType != '3'"
-        class="down"
-        :href="bgUrl"
-        target="_blank"
-      >
+      <a v-if="store.backgroundShow && store.coverType != '3'" class="down" :href="bgUrl" target="_blank">
         下载壁纸
       </a>
     </Transition>
@@ -25,6 +14,8 @@
 <script setup>
 import { mainStore } from "@/store";
 import { Error } from "@icon-park/vue-next";
+import { FastAverageColor } from "fast-average-color";
+import { colord } from "colord";
 
 const store = mainStore();
 const bgUrl = ref(null);
@@ -50,6 +41,7 @@ const changeBg = (type) => {
 
 // 图片加载完成
 const imgLoadComplete = () => {
+  setColorVariable();
   imgTimeout.value = setTimeout(
     () => {
       store.setImgLoadStatus(true);
@@ -58,9 +50,25 @@ const imgLoadComplete = () => {
   );
 };
 
+// 图片加载完成
+const setColorVariable = () => {
+  const fac = new FastAverageColor();
+  const bg = document.querySelector('.bg');
+  fac.getColorAsync(bg).then(color => {
+    let backgroundColor = colord(color.rgba).alpha(0.4).toRgbString();
+    let setColor = colord(color.rgba).alpha(0.4).lighten(0.2).toRgbString();
+    let mainColor = colord(color.rgba).lighten(0.5).toRgbString();
+    document.documentElement.style.setProperty("--background-color", backgroundColor);
+    document.documentElement.style.setProperty("--set-color", setColor);
+    document.documentElement.style.setProperty("--main-color", mainColor);
+  }).catch(e => {
+    console.log(e);
+  });
+};
+
 // 图片动画完成
 const imgAnimationEnd = () => {
-  console.log("壁纸加载且动画完成");
+  // console.log("壁纸加载且动画完成");
   // 加载完成事件
   emit("loadComplete");
 };

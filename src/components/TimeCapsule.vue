@@ -51,6 +51,7 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .time-capsule {
   width: 100%;
+
   .title {
     display: flex;
     flex-direction: row;

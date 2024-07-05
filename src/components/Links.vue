@@ -8,12 +8,7 @@
     </div>
     <!-- 网站列表 -->
     <Swiper v-if="siteLinks[0]" :modules="[Pagination, Mousewheel]" :slides-per-view="1" :space-between="40"
-      :pagination="{
-        el: '.swiper-pagination',
-        clickable: true,
-        bulletElement: 'div',
-      }"
-      :mousewheel="true">
+      :pagination="{el: '.swiper-pagination', clickable: true, bulletElement: 'div'}" :mousewheel="true">
       <SwiperSlide v-for="site in siteLinksList" :key="site">
         <el-row class="link-all" :gutter="20">
           <el-col v-for="(item, index) in site" :span="8" :key="item">
@@ -80,6 +75,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+@import "@/style/shadow.scss";
+
 .links {
   .line {
     margin: 2rem 0.25rem 1rem;
@@ -127,10 +124,12 @@ onMounted(() => {
       justify-content: center;
       padding: 0 10px;
       animation: fade 0.5s;
+      //box-shadow: $default-shadow;
 
       &:hover {
         transform: scale(1.02);
         background: rgb(0 0 0 / 40%);
+        //box-shadow: $hover-shadow;
         transition: 0.3s;
       }
 

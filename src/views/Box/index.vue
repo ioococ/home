@@ -1,22 +1,10 @@
 <template>
   <div class="box cards" @mouseenter="closeShow = true" @mouseleave="closeShow = false">
     <transition name="el-fade-in-linear">
-      <close-one
-        class="close"
-        theme="filled"
-        size="28"
-        fill="#ffffff60"
-        v-show="closeShow"
-        @click="store.boxOpenState = false" />
+      <close-one class="close" theme="filled" size="28" fill="#ffffff60" v-show="closeShow" @click="store.boxOpenState = false" />
     </transition>
     <transition name="el-fade-in-linear">
-      <setting-two
-        class="setting"
-        theme="filled"
-        size="28"
-        fill="#ffffff60"
-        v-show="closeShow"
-        @click="store.setOpenState = true" />
+      <setting-two class="setting" theme="filled" size="28" fill="#ffffff60" v-show="closeShow" @click="store.setOpenState = true" />
     </transition>
     <div class="content">
       <TimeCapsule />
@@ -34,6 +22,8 @@ const closeShow = ref(false);
 </script>
 
 <style lang="scss" scoped>
+@import "@/style/shadow.scss";
+
 .box {
   flex: 1 0 0%;
   margin-left: 0.75rem;
@@ -81,6 +71,7 @@ const closeShow = ref(false);
     padding: 30px;
     width: 100%;
     height: 100%;
+    box-shadow: $default-shadow;
   }
 }
 </style>
