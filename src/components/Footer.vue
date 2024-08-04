@@ -2,19 +2,18 @@
   <footer id="footer" :class="store.footerBlur ? 'blur' : null">
     <Transition name="fade" mode="out-in">
       <div v-if="!store.playerState || !store.playerLrcShow" class="power">
-        <span>
-          Copyright&nbsp;&copy;
-          <span v-if="siteStartDate?.length >= 4" class="site-start">
-            {{ siteStartDate.substring(0, 4) }}
-            -
-          </span>
-          {{ fullYear }}
-          <a :href="siteUrl">{{ siteAuthor }}</a>
-        </span>
+<!--        <span>-->
+<!--          Copyright&nbsp;&copy;-->
+<!--          <span v-if="siteStartDate?.length >= 4" class="site-start">-->
+<!--            {{ siteStartDate.substring(0, 4) }}-->
+<!--            - -->
+<!--          </span>-->
+<!--          {{ fullYear }}-->
+<!--          <a :href="siteUrl">{{ siteAuthor }}</a>-->
+<!--        </span>-->
         <!-- 以下信息请不要修改哦 -->
         <span class="hidden">
-          &amp;&nbsp;Made&nbsp;by
-          <a :href="config.github" target="_blank">{{ config.author }}</a>
+          Made with <i class="fa fa-heart throb" style="color:#d43f57"></i> by <a :href="config.home" target="_blank">{{ config.author }}</a>
         </span>
       </div>
       <div v-else class="lrc">
@@ -58,13 +57,16 @@ const siteUrl = computed(() => {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 46px;
-  line-height: 46px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
   z-index: 0;
   font-size: 14px;
   .power {
     animation: fade 0.3s;
+    #heart {
+      font-size: 12px;
+    }
   }
   .lrc {
     padding: 0 20px;
