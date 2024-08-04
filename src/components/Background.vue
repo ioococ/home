@@ -33,9 +33,9 @@ const changeBg = (type) => {
   } else if (type == 1) {
     bgUrl.value = "https://api.dujin.org/bing/1920.php";
   } else if (type == 2) {
-    bgUrl.value = "https://api.aixiaowai.cn/gqapi/gqapi.php";
+    bgUrl.value = "https://random-image-pepebigotes.vercel.app/api/random-image";
   } else if (type == 3) {
-    bgUrl.value = "https://api.aixiaowai.cn/api/api.php";
+    bgUrl.value = "https://api.hanximeng.com/ranimg/api.php";
   }
 };
 
@@ -57,7 +57,7 @@ const setColorVariable = () => {
   fac.getColorAsync(bg).then(color => {
     let backgroundColor = colord(color.rgba).alpha(0.4).toRgbString();
     let setColor = colord(color.rgba).alpha(0.4).lighten(0.2).toRgbString();
-    let mainColor = colord(color.rgba).lighten(0.5).toRgbString();
+    let mainColor = colord(color.rgba).lighten(0.3).toRgbString();
     document.documentElement.style.setProperty("--background-color", backgroundColor);
     document.documentElement.style.setProperty("--set-color", setColor);
     document.documentElement.style.setProperty("--main-color", mainColor);

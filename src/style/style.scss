@@ -20,7 +20,7 @@ p {
   padding: 0;
   user-select: none;
   text-decoration: none;
-  color: #FFFFFFCE;
+  color: var(--main-color);
   box-sizing: border-box;
 
   &:hover {
