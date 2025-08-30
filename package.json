@@ -22,7 +22,6 @@
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^3.0.0",
     "swiper": "^9.3.2",
-    "vara": "^1.4.2",
     "vue": "^3.3.4",
     "vue3-aplayer": "^1.7.3"
   },
