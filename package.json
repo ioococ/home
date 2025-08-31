@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "format": "prettier --write src/",
     "type-check": "vue-tsc --noEmit"
