@@ -101,6 +101,7 @@ export default ({ mode }: { mode: string }): UserConfig =>
           replacement: resolve(__dirname, "src"),
         },
       ],
+      extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
     },
     css: {
       preprocessorOptions: {

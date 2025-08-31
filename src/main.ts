@@ -7,6 +7,7 @@ import { i18n } from '@/utils/i18n.js'
 // 引入 pinia
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import { ElMessage } from 'element-plus'
 
 const app = createApp(App);
 const pinia = createPinia();
