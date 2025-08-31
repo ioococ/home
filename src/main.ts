@@ -3,7 +3,7 @@ import "@/style/style.scss";
 import "@/assets/FontAwesome/scss/fontawesome.scss";
 import "@/assets/FontAwesome/js/all.js";
 import App from "@/App.vue";
-import { i18n } from '@/utils/i18n.js'
+import { i18n } from '@/utils/i18n'
 // 引入 pinia
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";

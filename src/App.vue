@@ -43,8 +43,8 @@ import Background from "@/components/Background.vue";
 import Footer from "@/components/Footer.vue";
 import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
-import cursorInit from "@/utils/cursor.js";
-import randomColor from "@/utils/randomColor.js";
+import cursorInit from "@/utils/cursor";
+import randomColor from "@/utils/randomColor";
 import config from "@/../package.json";
 
 const store = mainStore();
