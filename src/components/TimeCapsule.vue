@@ -26,7 +26,7 @@
 
 <script setup>
 import { HourglassFull } from "@icon-park/vue-next";
-import { getTimeCapsule, siteDateStatistics } from "@/utils/getTime.js";
+import { getTimeCapsule, siteDateStatistics } from "@/utils/getTime";
 import { mainStore } from "@/store";
 const store = mainStore();
 
